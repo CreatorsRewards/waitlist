@@ -3,7 +3,7 @@ import SplitText from './SplitText';
 
 export default function Slide1Hero({ active }: { active: boolean }) {
   return (
-    <section className={`slide bg-matcha-grad ${active ? 'active' : ''}`}>
+    <section className={`slide ${active ? 'active' : ''}`}>
       <div
         className="animate-pop-bounce delay-1"
         style={{ marginBottom: '32px' }}

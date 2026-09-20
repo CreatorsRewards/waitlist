@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import Navbar from "../components/Navbar";
-import Slide1Hero from "../components/landing/Slide1Hero";
-import Slide2HowItWorks from "../components/landing/Slide2HowItWorks";
-import Slide5FinalCTA from "../components/landing/Slide5FinalCTA";
-import DotNav from "../components/landing/DotNav";
+import { useState, useEffect, useRef } from 'react';
+import Navbar from '../components/Navbar';
+import Slide1Hero from '../components/landing/Slide1Hero';
+import Slide2HowItWorks from '../components/landing/Slide2HowItWorks';
+import Slide5FinalCTA from '../components/landing/Slide5FinalCTA';
+import DotNav from '../components/landing/DotNav';
+import { DynamicScrollBackground } from '../components/DynamicScrollBackground';
+import { InteractiveGridBackground } from '../components/InteractiveGridBackground';
 
-import { ChevronDown } from "lucide-react";
-import Slide4Footer from "../components/landing/Slide4Footer";
+import { ChevronDown } from 'lucide-react';
+import Slide4Footer from '../components/landing/Slide4Footer';
 
 export default function LandingPage() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -34,8 +36,8 @@ export default function LandingPage() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" || e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowUp" || e.key === "ArrowLeft") prevSlide();
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') prevSlide();
     };
 
     const handleWheel = (e: WheelEvent) => {
@@ -49,12 +51,12 @@ export default function LandingPage() {
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('wheel', handleWheel, { passive: true });
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', handleWheel);
     };
   }, []);
 
@@ -79,154 +81,159 @@ export default function LandingPage() {
   };
 
   return (
-    <div
-      className={`slideshow-container ${isPinkBg ? "pink-bg" : ""}`}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      style={
-        {
-          "--scroll-progress": activeSlide / (totalSlides - 1),
-        } as React.CSSProperties & { "--scroll-progress": number }
-      }
-    >
-      <Navbar activeSlide={activeSlide} />
-
-      {/* HUD Viewport Borders */}
-      <div className="hud-border">
-        <div
-          className="corner-bracket corner-tl"
-          style={{
-            transform:
-              activeSlide % 2 === 0
-                ? "scale(1)"
-                : "scale(1.2) translate(-2px, -2px)",
-          }}
-        />
-        <div
-          className="corner-bracket corner-tr"
-          style={{
-            transform:
-              activeSlide % 2 === 0
-                ? "scale(1)"
-                : "scale(1.2) translate(2px, -2px)",
-          }}
-        />
-        <div
-          className="corner-bracket corner-bl"
-          style={{
-            transform:
-              activeSlide % 2 === 0
-                ? "scale(1)"
-                : "scale(1.2) translate(-2px, 2px)",
-          }}
-        />
-        <div
-          className="corner-bracket corner-br"
-          style={{
-            transform:
-              activeSlide % 2 === 0
-                ? "scale(1)"
-                : "scale(1.2) translate(2px, 2px)",
-          }}
-        />
-      </div>
-
-      {/* Bending Background Layer */}
+    <>
       <div
-        style={{
-          position: "fixed",
-          inset: "-1rem",
-          background: isPinkBg ? "var(--cr-yellow)" : "var(--cr-pink)",
-          zIndex: -10,
-          opacity: 0.1,
-          transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-          clipPath:
-            activeSlide % 2 === 0
-              ? "ellipse(100% 100% at 50% 100%)"
-              : "ellipse(150% 100% at 50% 120%)",
-          animation: "bend-it 8s infinite ease-in-out",
-        }}
-      />
-
-      <a
-        href="/join"
-        className="persistent-cta"
-        style={{
-          opacity: activeSlide === 2 || activeSlide === 3 ? 0 : 1,
-          pointerEvents:
-            activeSlide === 2 || activeSlide === 3 ? "none" : "all",
-        }}
+        className={`slideshow-container ${isPinkBg ? 'pink-bg' : ''}`}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={
+          {
+            '--scroll-progress': activeSlide / (totalSlides - 1),
+          } as React.CSSProperties & { '--scroll-progress': number }
+        }
       >
-        Join the Waitlist →
-      </a>
+        <Navbar activeSlide={activeSlide} />
 
-      {activeSlide < totalSlides - 1 && (
-        <div
-          className="scroll-indicator"
-          onClick={nextSlide}
-          style={{ cursor: "pointer", color: "white" }}
-        >
+        {/* HUD Viewport Borders */}
+        <div className="hud-border">
           <div
-            className="pulsing-arrow"
+            className="corner-bracket corner-tl"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              transform:
+                activeSlide % 2 === 0
+                  ? 'scale(1)'
+                  : 'scale(1.2) translate(-2px, -2px)',
+            }}
+          />
+          <div
+            className="corner-bracket corner-tr"
+            style={{
+              transform:
+                activeSlide % 2 === 0
+                  ? 'scale(1)'
+                  : 'scale(1.2) translate(2px, -2px)',
+            }}
+          />
+          <div
+            className="corner-bracket corner-bl"
+            style={{
+              transform:
+                activeSlide % 2 === 0
+                  ? 'scale(1)'
+                  : 'scale(1.2) translate(-2px, 2px)',
+            }}
+          />
+          <div
+            className="corner-bracket corner-br"
+            style={{
+              transform:
+                activeSlide % 2 === 0
+                  ? 'scale(1)'
+                  : 'scale(1.2) translate(2px, 2px)',
+            }}
+          />
+        </div>
+
+        {/* Bending Background Layer */}
+        <div
+          style={{
+            position: 'fixed',
+            inset: '-1rem',
+            background: isPinkBg ? 'var(--cr-yellow)' : 'var(--cr-pink)',
+            zIndex: -10,
+            opacity: 0.1,
+            transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+            clipPath:
+              activeSlide % 2 === 0
+                ? 'ellipse(100% 100% at 50% 100%)'
+                : 'ellipse(150% 100% at 50% 120%)',
+            animation: 'bend-it 8s infinite ease-in-out',
+          }}
+        />
+
+        <a
+          href="/join"
+          className="persistent-cta"
+          style={{
+            opacity: activeSlide === 2 || activeSlide === 3 ? 0 : 1,
+            pointerEvents:
+              activeSlide === 2 || activeSlide === 3 ? 'none' : 'all',
+          }}
+        >
+          Join the Waitlist →
+        </a>
+
+        {activeSlide < totalSlides - 1 && (
+          <div
+            className="scroll-indicator"
+            onClick={nextSlide}
+            style={{ cursor: 'pointer', color: 'white' }}
+          >
+            <div
+              className="pulsing-arrow"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <ChevronDown size={24} strokeWidth={3} />
+              <ChevronDown
+                size={24}
+                strokeWidth={3}
+                style={{ marginTop: '-12px' }}
+              />
+            </div>
+          </div>
+        )}
+
+        <div
+          className="slides-wrapper"
+          style={{
+            perspective: '1200px',
+            transformStyle: 'preserve-3d',
+            height: '100%',
+          }}
+        >
+          <DynamicScrollBackground />
+
+          <InteractiveGridBackground />
+          {/* Tech Particles */}
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              pointerEvents: 'none',
+              zIndex: -5,
             }}
           >
-            <ChevronDown size={24} strokeWidth={3} />
-            <ChevronDown
-              size={24}
-              strokeWidth={3}
-              style={{ marginTop: "-12px" }}
-            />
+            {techParticles.map((p, i) => (
+              <div
+                key={i}
+                style={{
+                  position: 'absolute',
+                  width: '2px',
+                  height: '2px',
+                  background: isPinkBg ? 'white' : 'var(--cr-pink)',
+                  left: p.left,
+                  top: p.top,
+                  opacity: 0.2,
+                  animation: `drift ${p.driftDuration}s infinite alternate linear`,
+                  animationDelay: `${p.delay}s`,
+                }}
+              />
+            ))}
           </div>
-        </div>
-      )}
 
-      <div
-        className="slides-wrapper"
-        style={{
-          perspective: "1200px",
-          transformStyle: "preserve-3d",
-          height: "100%",
-        }}
-      >
-        {/* Tech Particles */}
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            pointerEvents: "none",
-            zIndex: -5,
-          }}
-        >
-          {techParticles.map((p, i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                width: "2px",
-                height: "2px",
-                background: isPinkBg ? "white" : "var(--cr-pink)",
-                left: p.left,
-                top: p.top,
-                opacity: 0.2,
-                animation: `drift ${p.driftDuration}s infinite alternate linear`,
-                animationDelay: `${p.delay}s`,
-              }}
-            />
-          ))}
+          <Slide1Hero active={activeSlide === 0} />
+          <Slide2HowItWorks active={activeSlide === 1} />
+          <Slide5FinalCTA active={activeSlide === 2} />
+          <Slide4Footer active={activeSlide === 3} />
         </div>
 
-        <Slide1Hero active={activeSlide === 0} />
-        <Slide2HowItWorks active={activeSlide === 1} />
-        <Slide5FinalCTA active={activeSlide === 2} />
-        <Slide4Footer active={activeSlide === 3} />
+        <DotNav active={activeSlide} total={totalSlides} onChange={goToSlide} />
       </div>
-
-      <DotNav active={activeSlide} total={totalSlides} onChange={goToSlide} />
-    </div>
+    </>
   );
 }
