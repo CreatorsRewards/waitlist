@@ -5,6 +5,7 @@ import { SpotlightCard } from '../AnimatedComponents';
 import { useScreenBreakpoints } from '../../hooks/useMediaQuery';
 import { DynamicScrollBackground } from '../DynamicScrollBackground';
 import { InteractiveGridBackground } from '../InteractiveGridBackground';
+import { useNavigate } from 'react-router-dom';
 
 // import SplitText from './SplitText';
 
@@ -15,6 +16,8 @@ export default function Slide2HowItWorks({ active }: { active: boolean }) {
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
+
+  const navigate = useNavigate();
 
   // Parallax scroll transforms for the 3 grid columns on tablet/desktop
   const yCol0 = useTransform(scrollYProgress, [0, 1], [35, -35]);
@@ -135,7 +138,7 @@ export default function Slide2HowItWorks({ active }: { active: boolean }) {
                 className={idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}
               >
                 <SpotlightCard
-                  onClick={() => onJoinCreator(lane.title)}
+                  onClick={() => navigate('/join')}
                   className="group relative rounded-3xl bg-[#FAFAF9] border border-[#1C1917]/10 p-5 sm:p-7 md:p-8 lg:p-9 shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
                 >
                   <div>
