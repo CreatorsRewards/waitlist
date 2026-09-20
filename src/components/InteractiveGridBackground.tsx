@@ -135,10 +135,7 @@ export const InteractiveGridBackground: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = ripple.color.replace(
-          /[\d\.]+\)$/,
-          `${ripple.alpha})`
-        );
+        ctx.strokeStyle = ripple.color.replace(/[\d.]+\)$/, `${ripple.alpha})`);
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
@@ -243,9 +240,9 @@ export const InteractiveGridBackground: React.FC = () => {
       aria-hidden="true"
     >
       {/* Floating Animated Ambient Glow Blobs */}
-      <div className="absolute top-[-10%] right-[-10%] w-[550px] h-[550px] bg-[#FFDDBF] opacity-40 rounded-full blur-[140px] animate-pulse" />
-      <div className="absolute bottom-[-15%] left-[-10%] w-[650px] h-[650px] bg-[#BAE6FD] opacity-40 rounded-full blur-[160px]" />
-      <div className="absolute top-[45%] left-[20%] w-[450px] h-[450px] bg-[#FB7185] opacity-20 rounded-full blur-[180px]" />
+      <div className="absolute top-[-10%] right-[-10%] w-137.5 h-137.5 bg-[#FFDDBF] opacity-40 rounded-full blur-[140px] animate-pulse" />
+      <div className="absolute bottom-[-15%] left-[-10%] w-162.5 h-162.5 bg-[#BAE6FD] opacity-40 rounded-full blur-[160px]" />
+      <div className="absolute top-[45%] left-[20%] w-112.5 h-112.5 bg-[#FB7185] opacity-20 rounded-full blur-[180px]" />
 
       {/* Interactive Web Grid Canvas */}
       <canvas
