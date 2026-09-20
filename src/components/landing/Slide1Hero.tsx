@@ -9,11 +9,11 @@ import {
   SpotlightCard,
   ClipPathReveal,
 } from '../AnimatedComponents';
+import { useNavigate } from 'react-router-dom';
 
 export default function Slide1Hero(
   { active }: { active: boolean },
-  onStartCampaign: () => void,
-  onJoinCreator: () => void
+  onStartCampaign: () => void
 ) {
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 80]);
@@ -21,6 +21,7 @@ export default function Slide1Hero(
   const yDecor2 = useTransform(scrollY, [0, 500], [0, -100]);
 
   const [activePill, setActivePill] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const categoryPills = [
     'Beauty & Skincare',
@@ -306,7 +307,7 @@ export default function Slide1Hero(
             >
               <button
                 id="hero-start-campaign-cta"
-                onClick={() => onStartCampaign()}
+                onClick={() => navigate('/join')}
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#FB7185] hover:bg-[#F43F5E] shadow-lg shadow-[#FB7185]/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <span>Start a Campaign</span>
@@ -315,7 +316,7 @@ export default function Slide1Hero(
 
               <button
                 id="hero-join-creator-cta"
-                onClick={onJoinCreator}
+                onClick={() => navigate('/join')}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-[#1C1917] bg-[#FAFAF9] hover:bg-white border border-[#1C1917]/15 shadow-sm hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-[#FB7185]" />
