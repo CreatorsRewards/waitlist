@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { VerifiedBadge } from './SocialElements';
-import SplitText from './SplitText';
+// import { VerifiedBadge } from './SocialElements';
+// import SplitText from './SplitText';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import {
