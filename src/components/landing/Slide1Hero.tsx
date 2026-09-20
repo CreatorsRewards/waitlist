@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import { VerifiedBadge } from './SocialElements';
 // import SplitText from './SplitText';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -13,10 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { DynamicScrollBackground } from '../DynamicScrollBackground';
 import { InteractiveGridBackground } from '../InteractiveGridBackground';
 
-export default function Slide1Hero(
-  { active }: { active: boolean },
-  onStartCampaign: () => void
-) {
+export default function Slide1Hero({ active }: { active: boolean }) {
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, 80]);
   const yDecor1 = useTransform(scrollY, [0, 500], [0, -60]);
@@ -463,13 +460,13 @@ export default function Slide1Hero(
               {/* Campaign Feed Tracker directly from PDF */}
               <div className="space-y-2.5">
                 <div
-                  onClick={() =>
-                    onStartCampaign({
-                      name: 'Summer Campaign',
-                      type: 'UGC Creator',
-                      budget: '₦350,000',
-                    })
-                  }
+                  // onClick={() =>
+                  //   onStartCampaign({
+                  //     name: 'Summer Campaign',
+                  //     type: 'UGC Creator',
+                  //     budget: '₦350,000',
+                  //   })
+                  // }
                   className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#1C1917]/10 hover:border-[#FB7185] transition-all hover:translate-x-1 shadow-xs cursor-pointer"
                   title="Click to view or launch brief"
                 >
@@ -482,13 +479,13 @@ export default function Slide1Hero(
                 </div>
 
                 <div
-                  onClick={() =>
-                    onStartCampaign({
-                      name: 'Product Launch',
-                      type: 'Clipper',
-                      budget: '₦500,000',
-                    })
-                  }
+                  // onClick={() =>
+                  //   onStartCampaign({
+                  //     name: 'Product Launch',
+                  //     type: 'Clipper',
+                  //     budget: '₦500,000',
+                  //   })
+                  // }
                   className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#1C1917]/10 hover:border-[#FB7185] transition-all hover:translate-x-1 shadow-xs cursor-pointer"
                   title="Click to view or duplicate brief"
                 >
@@ -501,13 +498,13 @@ export default function Slide1Hero(
                 </div>
 
                 <div
-                  onClick={() =>
-                    onStartCampaign({
-                      name: 'Brand Awareness',
-                      type: 'Micro Influencer',
-                      budget: '₦750,000',
-                    })
-                  }
+                  // onClick={() =>
+                  //   onStartCampaign({
+                  //     name: 'Brand Awareness',
+                  //     type: 'Micro Influencer',
+                  //     budget: '₦750,000',
+                  //   })
+                  // }
                   className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-[#1C1917]/10 hover:border-[#FB7185] transition-all hover:translate-x-1 shadow-xs cursor-pointer"
                   title="Click to view or launch brief"
                 >

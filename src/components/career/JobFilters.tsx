@@ -49,7 +49,7 @@ const FilterGroup = ({
   label: string;
   options: readonly string[];
   active: string;
-  onChange: (val: unknown) => void;
+  onChange: (val: any) => void;
   showCount?: (val: string) => number;
 }) => (
   <div

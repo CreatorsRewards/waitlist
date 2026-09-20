@@ -13,7 +13,7 @@ export const DynamicScrollBackground: React.FC = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
           maxRatio = entry.intersectionRatio;
-          mostVisibleId = entry.target.id;
+          // mostVisibleId = entry.target.id;
         }
       });
 
