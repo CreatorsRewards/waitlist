@@ -4,8 +4,6 @@ import Slide1Hero from '../components/landing/Slide1Hero';
 import Slide2HowItWorks from '../components/landing/Slide2HowItWorks';
 import Slide5FinalCTA from '../components/landing/Slide5FinalCTA';
 import DotNav from '../components/landing/DotNav';
-import { DynamicScrollBackground } from '../components/DynamicScrollBackground';
-import { InteractiveGridBackground } from '../components/InteractiveGridBackground';
 
 import { ChevronDown } from 'lucide-react';
 import Slide4Footer from '../components/landing/Slide4Footer';
@@ -196,9 +194,6 @@ export default function LandingPage() {
             height: '100%',
           }}
         >
-          <DynamicScrollBackground />
-
-          <InteractiveGridBackground />
           {/* Tech Particles */}
           <div
             style={{

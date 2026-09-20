@@ -10,6 +10,8 @@ import {
   ClipPathReveal,
 } from '../AnimatedComponents';
 import { useNavigate } from 'react-router-dom';
+import { DynamicScrollBackground } from '../DynamicScrollBackground';
+import { InteractiveGridBackground } from '../InteractiveGridBackground';
 
 export default function Slide1Hero(
   { active }: { active: boolean },
@@ -40,7 +42,10 @@ export default function Slide1Hero(
   ];
 
   return (
-    <section className={`slide ${active ? 'active' : ''}`}>
+    <section className={`bg-matcha-grad slide ${active ? 'active' : ''}`}>
+      <DynamicScrollBackground />
+
+      <InteractiveGridBackground />
       {/* <div
         className="animate-pop-bounce delay-1"
         style={{ marginBottom: '32px' }}

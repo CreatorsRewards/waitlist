@@ -94,13 +94,13 @@ export const DynamicScrollBackground: React.FC = () => {
     };
   }, []);
 
-  const currentPalette =
-    SECTION_PALETTES[activeSectionId] || SECTION_PALETTES.hero;
+  // const currentPalette =
+  //   SECTION_PALETTES[activeSectionId] || SECTION_PALETTES.hero;
 
   return (
     <div
       aria-hidden="true"
-      className="bg-matcha-grad fixed inset-0 pointer-events-none -z-20 transition-colors duration-700 ease-out"
+      className=" fixed inset-0 pointer-events-none -z-20 transition-colors duration-700 ease-out"
       // style={{ backgroundColor: currentPalette.bgColor }}
     />
   );
