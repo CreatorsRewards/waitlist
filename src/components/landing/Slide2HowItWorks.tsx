@@ -79,7 +79,7 @@ export default function Slide2HowItWorks({ active }: { active: boolean }) {
   return (
     <section
       ref={sectionRef}
-      className={`slide bg-pink-grad ${active ? 'active' : ''} py-24 md:py-32 relative overflow-hidden`}
+      className={`py-24 md:py-32 relative overflow-hidden slide bg-pink-grad ${active ? 'active' : ''}`}
     >
       <DynamicScrollBackground />
 
