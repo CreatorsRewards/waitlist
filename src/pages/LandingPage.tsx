@@ -155,7 +155,10 @@ export default function LandingPage() {
           href="/join"
           className="persistent-cta"
           style={{
-            opacity: activeSlide === 2 || activeSlide === 3 ? 0 : 1,
+            opacity:
+              activeSlide === 1 || activeSlide === 3 || activeSlide === 0
+                ? 0
+                : 1,
             pointerEvents:
               activeSlide === 2 || activeSlide === 3 ? 'none' : 'all',
           }}
