@@ -1,26 +1,35 @@
-import Footer from "../Footer";
-import SplitText from "./SplitText";
+// import Footer from '../Footer';
+// import SplitText from "./SplitText";
+import { EarningsCalculator } from '../EarningsCalculator';
+import { DynamicScrollBackground } from '../DynamicScrollBackground';
+import { InteractiveGridBackground } from '../InteractiveGridBackground';
 
 export default function Slide4Footer({ active }: { active: boolean }) {
   return (
     <section
-      className={`slide ${active ? "active" : ""}`}
+      className={`slide ${active ? 'active' : ''}`}
       style={{
-        backgroundColor: "var(--cr-yellow)",
+        backgroundColor: 'var(--cr-yellow)',
         //  backgroundColor: "var(--cr-dark)",
-        overflowY: "auto",
+        overflowY: 'auto',
       }}
     >
-      <div
+      <DynamicScrollBackground />
+
+      <InteractiveGridBackground />
+
+      <EarningsCalculator />
+
+      {/* <div
         style={{
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
         }}
-      >
-        {/* ─── Top Content Area ─────────────────────────────── */}
-        <div
+      > */}
+      {/* ─── Top Content Area ─────────────────────────────── */}
+      {/* <div
           style={{
             flex: "1 1 auto",
             display: "flex",
@@ -30,9 +39,9 @@ export default function Slide4Footer({ active }: { active: boolean }) {
             padding: "40px 24px",
             position: "relative",
           }}
-        >
-          {/* HUD Corner Brackets */}
-          <div
+        > */}
+      {/* HUD Corner Brackets */}
+      {/* <div
             className="corner-bracket corner-tl"
             style={{ borderColor: "var(--cr-pink)" }}
           />
@@ -47,10 +56,10 @@ export default function Slide4Footer({ active }: { active: boolean }) {
           <div
             className="corner-bracket corner-br"
             style={{ borderColor: "var(--cr-pink)" }}
-          />
+          /> */}
 
-          {/* Status Tag */}
-          <div
+      {/* Status Tag */}
+      {/* <div
             className="animate-pop-bounce delay-1"
             style={{ marginBottom: "24px" }}
           >
@@ -91,7 +100,7 @@ export default function Slide4Footer({ active }: { active: boolean }) {
           </div>
 
           {/* Headline */}
-          <h2
+      {/* <h2
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(36px, 8vw, 72px)",
@@ -110,10 +119,10 @@ export default function Slide4Footer({ active }: { active: boolean }) {
             <SplitText text="SOMETHING" active={active} delay={0.5} />
             <br />
             <SplitText text="TOGETHER." active={active} delay={0.8} />
-          </h2>
+          </h2> */}
 
-          {/* Subcopy */}
-          <p
+      {/* Subcopy */}
+      {/* <p
             className="animate-slide-up delay-4 mobile-text-sm"
             style={{
               fontFamily: "var(--font-body)",
@@ -130,10 +139,10 @@ export default function Slide4Footer({ active }: { active: boolean }) {
           >
             CreatorsRewards is redefining how Nigerian creators monetize their
             craft. Join the movement.
-          </p>
+          </p> */}
 
-          {/* Decorative ₦ Watermark */}
-          <div
+      {/* Decorative ₦ Watermark */}
+      {/* <div
             className="float-subtle mobile-hide"
             style={{
               position: "absolute",
@@ -152,20 +161,20 @@ export default function Slide4Footer({ active }: { active: boolean }) {
           >
             ₦
           </div>
-        </div>
+        </div>  */}
 
-        {/* ─── Footer ───────────────────────────────────────── */}
-        <div
-          style={{
-            flexShrink: 0,
-            // backgroundColor: "",
-            // maxWidth: "1000px",
-            // margin: "0 auto",
-          }}
-        >
-          <Footer />
-        </div>
+      {/* ─── Footer ───────────────────────────────────────── */}
+      <div
+        style={{
+          flexShrink: 0,
+          // backgroundColor: "",
+          // maxWidth: "1000px",
+          // margin: "0 auto",
+        }}
+      >
+        {/* <Footer /> */}
       </div>
+      {/* </div> */}
     </section>
   );
 }

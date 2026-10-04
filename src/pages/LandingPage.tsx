@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Slide1Hero from '../components/landing/Slide1Hero';
 import Slide2HowItWorks from '../components/landing/Slide2HowItWorks';
 import Slide5FinalCTA from '../components/landing/Slide5FinalCTA';
+import Slide4Platforms from '../components/landing/Slide4Platforms';
 import DotNav from '../components/landing/DotNav';
 
 import { ChevronDown } from 'lucide-react';
@@ -10,7 +11,7 @@ import Slide4Footer from '../components/landing/Slide4Footer';
 
 export default function LandingPage() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const totalSlides = 4;
+  const totalSlides = 5;
   const lastScrollTime = useRef(0);
   const touchStartY = useRef(0);
 
@@ -154,7 +155,10 @@ export default function LandingPage() {
           href="/join"
           className="persistent-cta"
           style={{
-            opacity: activeSlide === 2 || activeSlide === 3 ? 0 : 1,
+            opacity:
+              activeSlide === 1 || activeSlide === 3 || activeSlide === 0
+                ? 0
+                : 1,
             pointerEvents:
               activeSlide === 2 || activeSlide === 3 ? 'none' : 'all',
           }}
@@ -225,6 +229,7 @@ export default function LandingPage() {
           <Slide2HowItWorks active={activeSlide === 1} />
           <Slide5FinalCTA active={activeSlide === 2} />
           <Slide4Footer active={activeSlide === 3} />
+          <Slide4Platforms active={activeSlide === 4} />
         </div>
 
         <DotNav active={activeSlide} total={totalSlides} onChange={goToSlide} />

@@ -1,31 +1,39 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Camera, Music2, AtSign } from "lucide-react";
-import { useWaitlistCount } from "../../hooks/useWaitlistCount";
-import { VerifiedBadge } from "./SocialElements";
-import SplitText from "./SplitText";
-import MagneticWrapper from "./MagneticWrapper";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { Camera, Music2, AtSign } from "lucide-react";
+// import { useWaitlistCount } from "../../hooks/useWaitlistCount";
+// import { VerifiedBadge } from "./SocialElements";
+// import SplitText from "./SplitText";
+// import MagneticWrapper from "./MagneticWrapper";
+import { BrandSection } from '../BrandSection';
+import { DynamicScrollBackground } from '../DynamicScrollBackground';
+import { InteractiveGridBackground } from '../InteractiveGridBackground';
 
 export default function Slide5FinalCTA({ active }: { active: boolean }) {
-  const navigate = useNavigate();
-  const { count } = useWaitlistCount();
+  // const navigate = useNavigate();
+  // const { count } = useWaitlistCount();
 
-  const [confetti] = useState(() => {
-    return [...Array(12)].map((_, i) => ({
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      color: ["var(--cr-yellow)", "var(--cr-blush)", "var(--cr-orange)"][i % 3],
-      duration: 5 + Math.random() * 5,
-      isCircle: i % 2 === 0,
-    }));
-  });
+  // const [confetti] = useState(() => {
+  //   return [...Array(12)].map((_, i) => ({
+  //     top: `${Math.random() * 100}%`,
+  //     left: `${Math.random() * 100}%`,
+  //     color: ["var(--cr-yellow)", "var(--cr-blush)", "var(--cr-orange)"][i % 3],
+  //     duration: 5 + Math.random() * 5,
+  //     isCircle: i % 2 === 0,
+  //   }));
+  // });
 
   return (
     <section
-      className={`slide bg-pink-grad ${active ? "active" : ""}`}
-      style={{ overflowY: "auto" }}
+      className={`slide bg-pink-grad ${active ? 'active' : ''}`}
+      style={{ overflowY: 'auto' }}
     >
-      <div
+      <DynamicScrollBackground />
+
+      <InteractiveGridBackground />
+
+      <BrandSection />
+      {/* <div
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -235,10 +243,10 @@ export default function Slide5FinalCTA({ active }: { active: boolean }) {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        {/* Decorative Confetti Shapes (CSS only) */}
-        {confetti.map((c, i) => (
+      {/* Decorative Confetti Shapes (CSS only) */}
+      {/* {confetti.map((c, i) => (
           <div
             key={i}
             style={{
@@ -256,7 +264,7 @@ export default function Slide5FinalCTA({ active }: { active: boolean }) {
             }}
           />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }
