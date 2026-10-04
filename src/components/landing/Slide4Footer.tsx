@@ -1,6 +1,8 @@
-import Footer from '../Footer';
+// import Footer from '../Footer';
 // import SplitText from "./SplitText";
 import { EarningsCalculator } from '../EarningsCalculator';
+import { DynamicScrollBackground } from '../DynamicScrollBackground';
+import { InteractiveGridBackground } from '../InteractiveGridBackground';
 
 export default function Slide4Footer({ active }: { active: boolean }) {
   return (
@@ -12,6 +14,10 @@ export default function Slide4Footer({ active }: { active: boolean }) {
         overflowY: 'auto',
       }}
     >
+      <DynamicScrollBackground />
+
+      <InteractiveGridBackground />
+
       <EarningsCalculator />
 
       {/* <div
