@@ -77,7 +77,7 @@ export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
   return (
     <section
       id="calculator"
-      className="py-24 md:py-32 bg-transparent text-[#1C1917] relative overflow-hidden border-t border-[#1C1917]/10"
+      className="py-2 md:py-2 bg-transparent text-[#1C1917] relative overflow-hidden border-t border-[#1C1917]/10"
     >
       {/* Parallax Background shapes */}
       <div className="absolute top-1/3 -right-20 w-96 h-96 rounded-full bg-[#FFDDBF] opacity-60 blur-3xl pointer-events-none -z-10" />
@@ -85,12 +85,12 @@ export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 md:mb-16">
+        <div className="max-w-3xl mb-2 md:mb-2 text-center mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#1C1917]/10 bg-[#BAE6FD] text-[#1C1917] text-xs font-bold uppercase tracking-wider mb-5 shadow-xs"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#1C1917]/10 bg-[#BAE6FD] text-[#1C1917] text-xs font-bold uppercase tracking-wider mb-1 shadow-xs"
           >
             <Calculator className="w-3.5 h-3.5 text-[#1C1917]" />
             <span>Interactive Performance Simulator</span>
@@ -101,7 +101,7 @@ export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1C1917] tracking-tight leading-[1.08] mb-6"
+            className="text-3xl sm:text-4xl md:text-3xl lg:text-4xl font-extrabold text-[#1C1917] tracking-tight leading-[1.08] mb-2"
             style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
             Simulate your earnings &{' '}
