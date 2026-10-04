@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Calculator,
@@ -8,23 +8,23 @@ import {
   Zap,
 } from 'lucide-react';
 import { AnimatedCounter, SpotlightCard } from './AnimatedComponents';
+import { useNavigate } from 'react-router-dom';
 
-interface EarningsCalculatorProps {
-  onStartCampaign: (details?: {
-    name: string;
-    type: string;
-    budget: string;
-  }) => void;
-  onJoinCreator: (lane?: string) => void;
-}
+// interface EarningsCalculatorProps {
+//   onStartCampaign: (details?: {
+//     name: string;
+//     type: string;
+//     budget: string;
+//   }) => void;
+//   onJoinCreator: (lane?: string) => void;
+// }
 
-export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
-  onStartCampaign,
-  onJoinCreator,
-}) => {
+export const EarningsCalculator = () => {
   const [role, setRole] = useState<'creator' | 'brand'>('creator');
   const [lane, setLane] = useState<'ugc' | 'clipper' | 'influencer'>('ugc');
   const [views, setViews] = useState<number>(150000); // 150K views default
+
+  const navigate = useNavigate();
 
   // Rate calculations in Naira (₦)
   // UGC: Base + View bonus
@@ -348,7 +348,7 @@ export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
               {role === 'creator' ? (
                 <button
                   id="calc-join-creator-btn"
-                  onClick={() => onJoinCreator(currentConfig.name)}
+                  onClick={() => navigate('/join')}
                   className="w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#FB7185] hover:bg-[#F43F5E] shadow-lg shadow-[#FB7185]/25 hover:scale-[1.02] transition-all cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-white flex-shrink-0" />
@@ -360,13 +360,14 @@ export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
               ) : (
                 <button
                   id="calc-start-campaign-btn"
-                  onClick={() =>
-                    onStartCampaign({
-                      name: `${currentConfig.name} Launch`,
-                      type: currentConfig.name,
-                      budget: `₦${brandEstBudgetNGN.toLocaleString()}`,
-                    })
-                  }
+                  // onClick={() =>
+                  //   onStartCampaign({
+                  //     name: `${currentConfig.name} Launch`,
+                  //     type: currentConfig.name,
+                  //     budget: `₦${brandEstBudgetNGN.toLocaleString()}`,
+                  //   })
+                  // }
+                  onClick={() => navigate('/join')}
                   className="w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#FB7185] hover:bg-[#F43F5E] shadow-lg shadow-[#FB7185]/25 hover:scale-[1.02] transition-all cursor-pointer"
                 >
                   <Zap className="w-4 h-4 text-white" />

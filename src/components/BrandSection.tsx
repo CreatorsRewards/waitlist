@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import {
   Sparkles,
@@ -10,20 +10,21 @@ import {
 } from 'lucide-react';
 import { SpotlightCard } from './AnimatedComponents';
 import { useScreenBreakpoints } from '../hooks/useMediaQuery';
+import { useNavigate } from 'react-router-dom';
 
-interface BrandSectionProps {
-  onStartCampaign: (category?: string) => void;
-}
+// interface BrandSectionProps {
+//   onStartCampaign: (category?: string) => void;
+// }
 
-export const BrandSection: React.FC<BrandSectionProps> = ({
-  onStartCampaign,
-}) => {
+export const BrandSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { isLg } = useScreenBreakpoints();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
+
+  const navigate = useNavigate();
 
   // Parallax scroll transforms across desktop columns
   const yCol1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
@@ -146,7 +147,7 @@ export const BrandSection: React.FC<BrandSectionProps> = ({
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
               >
                 <SpotlightCard
-                  onClick={() => onStartCampaign(cat.title)}
+                  onClick={() => navigate('/join')}
                   className="group relative rounded-3xl bg-[#FAFAF9] border border-[#1C1917]/10 p-6 sm:p-7 shadow-md transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
                 >
                   <div className="flex items-start justify-between mb-6">
