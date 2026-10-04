@@ -11,13 +11,11 @@ import {
 import { SpotlightCard } from './AnimatedComponents';
 import { useScreenBreakpoints } from '../hooks/useMediaQuery';
 
-interface BrandSectionProps {
-  onStartCampaign: (category?: string) => void;
-}
+// interface BrandSectionProps {
+//   onStartCampaign: (category?: string) => void;
+// }
 
-export const BrandSection: React.FC<BrandSectionProps> = ({
-  onStartCampaign,
-}) => {
+export const BrandSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { isLg } = useScreenBreakpoints();
   const { scrollYProgress } = useScroll({

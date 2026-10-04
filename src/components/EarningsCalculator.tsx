@@ -9,19 +9,16 @@ import {
 } from 'lucide-react';
 import { AnimatedCounter, SpotlightCard } from './AnimatedComponents';
 
-interface EarningsCalculatorProps {
-  onStartCampaign: (details?: {
-    name: string;
-    type: string;
-    budget: string;
-  }) => void;
-  onJoinCreator: (lane?: string) => void;
-}
+// interface EarningsCalculatorProps {
+//   onStartCampaign: (details?: {
+//     name: string;
+//     type: string;
+//     budget: string;
+//   }) => void;
+//   onJoinCreator: (lane?: string) => void;
+// }
 
-export const EarningsCalculator: React.FC<EarningsCalculatorProps> = ({
-  onStartCampaign,
-  onJoinCreator,
-}) => {
+export const EarningsCalculator = () => {
   const [role, setRole] = useState<'creator' | 'brand'>('creator');
   const [lane, setLane] = useState<'ugc' | 'clipper' | 'influencer'>('ugc');
   const [views, setViews] = useState<number>(150000); // 150K views default
